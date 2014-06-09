@@ -24,7 +24,7 @@ set nowb
 set noswapfile  
 
 "粘贴时保持格式  
-set paste  
+" set paste  
 "- 则点击光标不会换,用于复制  
 set mouse-=a           " 在所有的模式下面打开鼠标。  
 set selection=exclusive    
@@ -37,7 +37,6 @@ set novisualbell
 set t_vb=  
 set tm=500  
 
-
 "==========================================  
 " show and format  
 "==========================================  
@@ -46,7 +45,6 @@ set tm=500
 set nowrap                    " 取消换行。  
 ""为方便复制，用<F2>开启/关闭行号显示:  
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>  
-
 
 "括号配对情况  
 set showmatch  
@@ -64,8 +62,6 @@ set incsearch
 set smartcase  
 
 
-
-
 " 代码折叠  
 " set foldenable
 " 折叠方法  
@@ -79,11 +75,13 @@ set smartcase
 " 在左侧显示折叠的层次  
 "set foldcolumn=4  
 
-set tabstop=4                " 设置Tab键的宽度        [等同的空格个数]  
-set shiftwidth=4  
-set expandtab                " 将Tab自动转化成空格    [需要输入真正的Tab键时，使用 Ctrl+V + Tab]  
+ set tabstop=4                " 设置Tab键的宽度        [等同的空格个数]  
+ set shiftwidth=4  
+" set expandtab                " 将Tab自动转化成空格    [需要输入真正的Tab键时，使用 Ctrl+V + Tab]  
 " 按退格键时可以一次删掉 4 个空格  
 set softtabstop=4  
+set autoindent
+set cindent
   
 set ai "Auto indent  
 set si "Smart indent  
@@ -120,7 +118,7 @@ syntax on
 "配色方案 三种,选一个  
 "colorscheme darkblue          " 深蓝色配色方案。  
   
-"colorscheme desert " 经典配色方案。  
+colorscheme desert " 经典配色方案。  
 "set background=dark  
   
 "同sublime text2  
@@ -195,3 +193,20 @@ set whichwrap+=<,>,h,l
 let g:pydiction_location = '~/.vim/tools/pydiction/complete-dict'  
 "defalut g:pydiction_menu_height == 15  
 let g:pydiction_menu_height = 20   
+
+if has("cscope")
+    set csprg=/usr/bin/cscope
+    set csto=0
+    set cst
+    set nocsverb
+    " add any database in current directory
+    if filereadable("cscope.out")
+        cs add cscope.out
+        " else add database pointed to by environment
+    elseif $CSCOPE_DB != ""
+        cs add $CSCOPE_DB
+    endif
+    set csverb
+endif
+
+
