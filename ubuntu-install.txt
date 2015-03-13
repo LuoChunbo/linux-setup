@@ -4,17 +4,21 @@ sudo apt-get update
 
 安装  CLASSIC 桌面
 
-sudo apt-get install gnome-panel
+sudo apt-get install gnome-session-flashback
 
 
 调整 button layout
 
 sudo apt-get install gconf-editor
 
+
+
 in gconf-editor
 apps - metacity - general ----- button_layout
 
 :minimize,maximize,close
+
+gsettings set org.gnome.desktop.wm.preferences button-layout 'menu:minimize,maximize,close'
 
 安装 ACROBAT READER
 
