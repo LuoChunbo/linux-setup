@@ -15,7 +15,10 @@ filetype plugin indent on
 
 set tabstop=4                " 设置Tab键的宽度        [等同的空格个数]  
 set shiftwidth=4  
+set softtabstop=4
 set expandtab
+set smarttab
+
 
 " 按退格键时可以一次删掉 4 个空格  
 set softtabstop=4  
