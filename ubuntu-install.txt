@@ -78,3 +78,10 @@ sudo apt-get install git gnupg flex bison gperf build-essential \
 
 sudo apt-get install uboot-mkimage
 
+
+删除 display rotatiosn
+
+sudo systemctl stop iio-sensor-proxy.service
+sudo systemctl disable iio-sensor-proxy.service
+sudo apt-get remove iio-sensor-proxy
+
